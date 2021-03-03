@@ -1,0 +1,29 @@
+﻿<Properties StartupConfiguration="{8E296F71-0CD5-4ABE-8FDF-CE93D24B34F8}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="quiz-backend/Controllers/AccountController.cs">
+    <Files>
+      <File FileName="quiz-backend/Controllers/AccountController.cs" Line="11" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="quiz-backend" expanded="True">
+            <Node name="quiz-backend" expanded="True">
+              <Node name="Controllers" expanded="True">
+                <Node name="AccountController.cs" selected="True" />
+              </Node>
+              <Node name="Models" expanded="True" />
+              <Node name="Properties" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.quiz-backend PreferredExecutionTarget="/Applications/Safari.app" />
+</Properties>
