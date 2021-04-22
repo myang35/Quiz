@@ -1,0 +1,27 @@
+/* You can add global styles to this file, and also import other style files */
+/*
+Pre-built Themes:
+@angular/material/prebuilt-themes/deeppurple-amber.css
+@angular/material/prebuilt-themes/indigo-pink.css
+@angular/material/prebuilt-themes/pink-bluegrey.css
+@angular/material/prebuilt-themes/purple-green.css
+*/
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.fullWidth {
+    width: 100%
+}
+
+.clickLink {
+    cursor: pointer
+}
+
+.alignItemsIntoRows {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}

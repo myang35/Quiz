@@ -1,0 +1,13 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row class="shadow py-1">
+        <button mat-button routerLink="/">Play</button>
+        <span style="flex: 1 1 auto"></span>
+        <button mat-button class="my-1" *ngIf="!isAuthenticated" routerLink="/register">Register</button>
+        <button mat-button *ngIf="!isAuthenticated" routerLink="/login">Login</button>
+        <button mat-button *ngIf="isAuthenticated" routerLink="/my-quiz">My Quiz</button>
+        <button mat-button *ngIf="isAuthenticated" (click)="logout()">Logout</button>
+    </mat-toolbar-row>
+    <mat-toolbar-row>
+        <h1 class="mx-auto">{{ title }}</h1>
+    </mat-toolbar-row>
+</mat-toolbar>
