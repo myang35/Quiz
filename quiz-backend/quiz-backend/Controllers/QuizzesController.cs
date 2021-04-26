@@ -15,9 +15,9 @@ namespace quiz_backend.Controllers
     [ApiController]
     public class QuizzesController : ControllerBase
     {
-        private readonly QuizContext _context;
+        private readonly QuizDbContext _context;
 
-        public QuizzesController(QuizContext context)
+        public QuizzesController(QuizDbContext context)
         {
             _context = context;
         }
@@ -28,20 +28,20 @@ namespace quiz_backend.Controllers
         public async Task<ActionResult<IEnumerable<Quiz>>> GetQuiz()
         {
             var userId = HttpContext.User.Claims.First().Value;
-            return await _context.Quiz.Where(q => q.OwnerId == userId).ToListAsync();
+            return await _context.Quizzes.Where(q => q.OwnerId == userId).ToListAsync();
         }
 
         [HttpGet("all")]
         public async Task<ActionResult<IEnumerable<Quiz>>> GetAllQuizzes()
         {
-            return await _context.Quiz.ToListAsync();
+            return await _context.Quizzes.ToListAsync();
         }
 
         // GET: api/Quizzes/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Quiz>> GetQuiz(int id)
         {
-            var quiz = await _context.Quiz.FindAsync(id);
+            var quiz = await _context.Quizzes.FindAsync(id);
 
             if (quiz == null)
             {
@@ -93,7 +93,7 @@ namespace quiz_backend.Controllers
             var userId = HttpContext.User.Claims.First().Value;
 
             quiz.OwnerId = userId;
-            _context.Quiz.Add(quiz);
+            _context.Quizzes.Add(quiz);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetQuiz", new { id = quiz.ID }, quiz);
@@ -103,13 +103,13 @@ namespace quiz_backend.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<Quiz>> DeleteQuiz(int id)
         {
-            var quiz = await _context.Quiz.FindAsync(id);
+            var quiz = await _context.Quizzes.FindAsync(id);
             if (quiz == null)
             {
                 return NotFound();
             }
 
-            _context.Quiz.Remove(quiz);
+            _context.Quizzes.Remove(quiz);
             await _context.SaveChangesAsync();
 
             return quiz;
@@ -117,7 +117,7 @@ namespace quiz_backend.Controllers
 
         private bool QuizExists(int id)
         {
-            return _context.Quiz.Any(e => e.ID == id);
+            return _context.Quizzes.Any(e => e.ID == id);
         }
     }
 }

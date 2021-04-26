@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { QuestionComponent } from './question.component';
-import { RegisterComponent } from './register.component';
-import { LoginComponent } from './login.component';
-import { PlayComponent } from './play.component';
-import { PlayQuizComponent } from './play-quiz.component';
-import { MyQuizComponent } from './my-quiz.component';
+import { QuestionComponent } from './Pages/question.component';
+import { RegisterComponent } from './Pages/register.component';
+import { LoginComponent } from './Pages/login.component';
+import { PlayComponent } from './Pages/play.component';
+import { PlayQuizComponent } from './Pages/play-quiz.component';
+import { MyQuizComponent } from './Pages/my-quiz.component';
 
 const routes: Routes = [
   {path: '', component: PlayComponent},

@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { ApiService } from './api.service';
+import { ApiService } from '../Services/api.service';
 import { ActivatedRoute } from '@angular/router';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { FinishedComponent } from './finished.component';
-import { AppService } from './app.service';
+import { FinishedComponent } from '../Components/finished.component';
+import { AppService } from '../Services/app.service';
 
 @Component({
     templateUrl: './play-quiz.component.html'

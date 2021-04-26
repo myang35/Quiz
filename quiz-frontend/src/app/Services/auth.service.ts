@@ -19,6 +19,7 @@ export class AuthService {
 
     login(credentials: any) {
         return this.http.post<any>('http://localhost:5001/api/account/login', credentials).subscribe(res => {
+            console.log("Result: " + res);
             this.authenticate(res);
         })
     }

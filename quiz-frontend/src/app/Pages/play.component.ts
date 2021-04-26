@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { ApiService } from './api.service';
-import { AppService } from './app.service';
+import { ApiService } from '../Services/api.service';
+import { AppService } from '../Services/app.service';
 
 @Component({
     selector: 'play',

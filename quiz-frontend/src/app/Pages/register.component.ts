@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { AuthService } from './auth.service';
-import { AppService } from './app.service';
+import { AuthService } from '../Services/auth.service';
+import { AppService } from '../Services/app.service';
 
 @Component({
-    selector: 'login',
-    templateUrl: './login.component.html'
+    templateUrl: './register.component.html'
 })
-export class LoginComponent {
+export class RegisterComponent {
 
     form: any;
 
@@ -16,11 +15,10 @@ export class LoginComponent {
             email: ['', Validators.required],
             password: ['', Validators.required]
         });
-        this.app.setTitle("Login");
+        this.app.setTitle("Register");
     }
 
-    login(credentials: any) {
-        this.auth.login(credentials);
+    register(credentials: any) {
+        this.auth.register(credentials);
     }
-
 }

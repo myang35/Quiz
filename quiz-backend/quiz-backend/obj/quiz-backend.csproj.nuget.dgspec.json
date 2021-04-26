@@ -1,30 +1,36 @@
 {
   "format": 1,
   "restore": {
-    "/Users/marvin/Desktop/quiz/quiz-backend/quiz-backend/quiz-backend.csproj": {}
+    "C:\\Users\\Marvin\\Desktop\\Marvin\\Marvin's Projects\\Quiz\\quiz-backend\\quiz-backend\\quiz-backend.csproj": {}
   },
   "projects": {
-    "/Users/marvin/Desktop/quiz/quiz-backend/quiz-backend/quiz-backend.csproj": {
+    "C:\\Users\\Marvin\\Desktop\\Marvin\\Marvin's Projects\\Quiz\\quiz-backend\\quiz-backend\\quiz-backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/marvin/Desktop/quiz/quiz-backend/quiz-backend/quiz-backend.csproj",
+        "projectUniqueName": "C:\\Users\\Marvin\\Desktop\\Marvin\\Marvin's Projects\\Quiz\\quiz-backend\\quiz-backend\\quiz-backend.csproj",
         "projectName": "quiz-backend",
-        "projectPath": "/Users/marvin/Desktop/quiz/quiz-backend/quiz-backend/quiz-backend.csproj",
-        "packagesPath": "/Users/marvin/.nuget/packages/",
-        "outputPath": "/Users/marvin/Desktop/quiz/quiz-backend/quiz-backend/obj/",
+        "projectPath": "C:\\Users\\Marvin\\Desktop\\Marvin\\Marvin's Projects\\Quiz\\quiz-backend\\quiz-backend\\quiz-backend.csproj",
+        "packagesPath": "C:\\Users\\Marvin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Marvin\\Desktop\\Marvin\\Marvin's Projects\\Quiz\\quiz-backend\\quiz-backend\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "/Users/marvin/.config/NuGet/NuGet.Config"
+          "C:\\Users\\Marvin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
-            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -36,7 +42,6 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
@@ -91,7 +96,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.201/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
         }
       }
     }

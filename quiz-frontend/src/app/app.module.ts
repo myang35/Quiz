@@ -15,21 +15,21 @@ import { MatDialogModule } from '@angular/material/dialog';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { QuestionComponent } from './question.component';
-import { ApiService } from './api.service';
-import { QuestionsComponent } from './questions.component';
-import { PageHeaderComponent } from './page-header.component';
-import { QuizComponent } from './quiz.component';
-import { QuizzesComponent } from './quizzes.component';
-import { RegisterComponent } from './register.component';
-import { AuthService } from './auth.service';
-import { AuthInterceptor } from './auth.interceptor';
-import { LoginComponent } from './login.component';
-import { PlayComponent } from './play.component';
-import { PlayQuizComponent } from './play-quiz.component';
-import { FinishedComponent } from './finished.component';
-import { MyQuizComponent } from './my-quiz.component';
-import { AppService } from './app.service';
+import { QuestionComponent } from './Pages/question.component';
+import { ApiService } from './Services/api.service';
+import { QuestionsComponent } from './Components/questions.component';
+import { PageHeaderComponent } from './Components/page-header.component';
+import { QuizComponent } from './Components/quiz.component';
+import { QuizzesComponent } from './Components/quizzes.component';
+import { RegisterComponent } from './Pages/register.component';
+import { AuthService } from './Services/auth.service';
+import { AuthInterceptor } from './Services/auth.interceptor';
+import { LoginComponent } from './Pages/login.component';
+import { PlayComponent } from './Pages/play.component';
+import { PlayQuizComponent } from './Pages/play-quiz.component';
+import { FinishedComponent } from './Components/finished.component';
+import { MyQuizComponent } from './Pages/my-quiz.component';
+import { AppService } from './Services/app.service';
 
 @NgModule({
   declarations: [

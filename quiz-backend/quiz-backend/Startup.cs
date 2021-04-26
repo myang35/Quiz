@@ -38,7 +38,7 @@ namespace quiz_backend
                 .AllowAnyHeader();
             }));
 
-            services.AddDbContext<QuizContext>(opt => opt.UseInMemoryDatabase("quiz"));
+            services.AddDbContext<QuizDbContext>(opt => opt.UseInMemoryDatabase("quiz"));
             services.AddDbContext<UserDbContext>(opt => opt.UseInMemoryDatabase("user"));
 
             services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<UserDbContext>();
