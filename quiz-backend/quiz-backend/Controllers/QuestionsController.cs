@@ -13,8 +13,8 @@ namespace quiz_backend.Controllers
     [Route("api/[controller]")]
     public class QuestionsController : Controller
     {
-        readonly QuizContext context;
-        public QuestionsController(QuizContext context)
+        readonly QuizDbContext context;
+        public QuestionsController(QuizDbContext context)
         {
             this.context = context;
         }
@@ -34,7 +34,7 @@ namespace quiz_backend.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody]Models.Question question)
         {
-            var quiz = context.Quiz.SingleOrDefault(q => q.ID == question.QuizId);
+            var quiz = context.Quizzes.SingleOrDefault(q => q.ID == question.QuizId);
             if (quiz == null)
             {
                 return NotFound();
