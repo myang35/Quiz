@@ -38,8 +38,8 @@ namespace quiz_backend
                 .AllowAnyHeader();
             }));
 
-            services.AddDbContext<QuizDbContext>(opt => opt.UseInMemoryDatabase("quiz"));
-            services.AddDbContext<UserDbContext>(opt => opt.UseInMemoryDatabase("user"));
+            services.AddDbContext<QuizDbContext>(opt => opt.UseSqlServer("Server=DESKTOP-U55Q0K9\\SQLEXPRESS;Database=QuizDb;Trusted_Connection=True;"));
+            services.AddDbContext<UserDbContext>(opt => opt.UseSqlServer("Server=DESKTOP-U55Q0K9\\SQLEXPRESS;Database=UserDb;Trusted_Connection=True;"));
 
             services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<UserDbContext>();
 
