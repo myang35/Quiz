@@ -4,7 +4,7 @@ import { AuthService } from '../Services/auth.service';
 import { AppService } from '../Services/app.service';
 
 @Component({
-    templateUrl: './register.component.html'
+    templateUrl: './register-page.component.html'
 })
 export class RegisterComponent {
 

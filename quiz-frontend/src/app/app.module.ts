@@ -15,20 +15,20 @@ import { MatDialogModule } from '@angular/material/dialog';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { QuestionComponent } from './Pages/question.component';
+import { QuestionComponent } from './Pages/question-page.component';
 import { ApiService } from './Services/api.service';
 import { QuestionsComponent } from './Components/questions.component';
 import { PageHeaderComponent } from './Components/page-header.component';
 import { QuizComponent } from './Components/quiz.component';
 import { QuizzesComponent } from './Components/quizzes.component';
-import { RegisterComponent } from './Pages/register.component';
+import { RegisterComponent } from './Pages/register-page.component';
 import { AuthService } from './Services/auth.service';
 import { AuthInterceptor } from './Services/auth.interceptor';
-import { LoginComponent } from './Pages/login.component';
-import { PlayComponent } from './Pages/play.component';
-import { PlayQuizComponent } from './Pages/play-quiz.component';
+import { LoginComponent } from './Pages/login-page.component';
+import { PlayComponent } from './Pages/play-page.component';
+import { PlayQuizComponent } from './Pages/play-quiz-page.component';
 import { FinishedComponent } from './Components/finished.component';
-import { MyQuizComponent } from './Pages/my-quiz.component';
+import { MyQuizComponent } from './Pages/my-quiz-page.component';
 import { AppService } from './Services/app.service';
 
 @NgModule({

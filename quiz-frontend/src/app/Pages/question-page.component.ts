@@ -4,8 +4,7 @@ import { AppService } from '../Services/app.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-    selector: 'question',
-    templateUrl: './question.component.html'
+    templateUrl: './question-page.component.html'
 })
 export class QuestionComponent {
     question = {} as any;

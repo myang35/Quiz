@@ -3,8 +3,7 @@ import { ApiService } from '../Services/api.service';
 import { AppService } from '../Services/app.service';
 
 @Component({
-    selector: 'play',
-    templateUrl: './play.component.html'
+    templateUrl: './play-page.component.html'
 })
 export class PlayComponent {
 

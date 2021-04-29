@@ -6,7 +6,7 @@ import { FinishedComponent } from '../Components/finished.component';
 import { AppService } from '../Services/app.service';
 
 @Component({
-    templateUrl: './play-quiz.component.html'
+    templateUrl: './play-quiz-page.component.html'
 })
 export class PlayQuizComponent {
 
