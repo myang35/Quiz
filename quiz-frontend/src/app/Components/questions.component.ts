@@ -1,29 +1,27 @@
 import { Component } from '@angular/core';
 import { ApiService } from '../Services/api.service';
 import { ActivatedRoute } from '@angular/router';
+import { Question } from '../types';
 
 @Component({
     selector: 'questions',
     templateUrl: './questions.component.html'
 })
 export class QuestionsComponent {
-    question = {} as any;
-    questions: any
+    questions?: Question[];
 
     constructor(private api: ApiService, private route: ActivatedRoute) {}
 
     ngOnInit() {
-        var quizId  = this.route.snapshot.paramMap.get('quizId');
-        this.api.getQuestions(quizId).subscribe(res => {
-            this.questions = res
-        });
+        var quizId = this.route.snapshot.paramMap.get('quizId');
+        if (quizId != null) {
+            this.api.getQuestions(quizId).subscribe(res => {
+                this.questions = res
+            });
+        }
     }
 
-    post(question: any) {
-        this.api.postQuestion(question);
-    }
-
-    selectQuestion(question: any) {
+    selectQuestion(question: Question) {
         this.api.selectQuestion(question);
     }
 }

@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { ApiService } from '../Services/api.service';
+import { Quiz } from '../types';
 
 @Component({
     selector: 'quizzes',
     templateUrl: './quizzes.component.html'
 })
 export class QuizzesComponent {
-    quiz = {} as any;
-    quizzes: any;
+    quizzes: Quiz[] = [];
 
     constructor(private api: ApiService) {}
 
@@ -18,7 +18,7 @@ export class QuizzesComponent {
         })
     }
 
-    selectQuiz(quiz: any) {
+    selectQuiz(quiz: Quiz) {
         this.api.selectQuiz(quiz);
     }
 }

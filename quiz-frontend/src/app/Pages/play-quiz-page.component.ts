@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FinishedComponent } from '../Components/finished.component';
 import { AppService } from '../Services/app.service';
+import { Question } from '../types';
 
 @Component({
     templateUrl: './play-quiz-page.component.html'
@@ -11,7 +12,7 @@ import { AppService } from '../Services/app.service';
 export class PlayQuizComponent {
 
     quizId: any;
-    questions: any;
+    questions: Question[] = [];
 
     constructor(private app: AppService, private api: ApiService, private route: ActivatedRoute, private dialog: MatDialog) {
         this.app.setTitle("Play Quiz");
@@ -23,8 +24,8 @@ export class PlayQuizComponent {
         this.api.getQuestions(this.quizId).subscribe(res => {
             this.questions = res;
 
-            this.questions.forEach((q:any) => {
-                q.answers = [q.correctAnswer, q.answer1, q.answer2, q.answer3];
+            this.questions.forEach(q => {
+                q.answers = [q.correctAnswer ?? 'null', q.answer1 ?? 'null', q.answer2 ?? 'null', q.answer3 ?? 'null'];
                 shuffle(q.answers);
             });
         })
@@ -32,7 +33,7 @@ export class PlayQuizComponent {
 
     finish() {
         var correct = 0;
-        this.questions.forEach((q:any) => {
+        this.questions.forEach(q => {
             if (q.correctAnswer == q.selectedAnswer) {
                 correct++;
             }

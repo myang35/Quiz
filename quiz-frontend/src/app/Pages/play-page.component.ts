@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ApiService } from '../Services/api.service';
 import { AppService } from '../Services/app.service';
+import { Quiz } from '../types';
 
 @Component({
     templateUrl: './play-page.component.html'
@@ -8,7 +9,7 @@ import { AppService } from '../Services/app.service';
 export class PlayComponent {
 
     displayedColumns: string[] = ['title']
-    quizzes: any
+    quizzes: Quiz[] = [];
 
     constructor(private app: AppService, private api: ApiService) {
         this.app.setTitle("Play");
@@ -20,7 +21,7 @@ export class PlayComponent {
         })
     }
 
-    selectQuiz(quiz: any) {
+    selectQuiz(quiz: Quiz) {
         this.api.selectQuiz(quiz);
     }
 

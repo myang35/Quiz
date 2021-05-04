@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { ApiService } from '../Services/api.service';
+import { Quiz } from '../types';
 
 @Component({
     selector: 'quiz',
     templateUrl: './quiz.component.html'
 })
 export class QuizComponent {
-    quiz = {} as any
+    quiz: Quiz = {};
 
     constructor(private api: ApiService) {}
 
@@ -16,11 +17,11 @@ export class QuizComponent {
         })
     }
 
-    postQuiz(quiz: any) {
+    postQuiz(quiz: Quiz) {
         this.api.postQuiz(quiz);
     }
 
-    putQuiz(quiz: any) {
+    putQuiz(quiz: Quiz) {
         this.api.putQuiz(quiz);
     }
     

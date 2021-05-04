@@ -12,14 +12,13 @@ export class AuthService {
     }
 
     register(credentials: any) {
-        return this.http.post<any>('http://localhost:5001/api/account', credentials).subscribe(res => {
+        return this.http.post<string>('http://localhost:5001/api/account', credentials).subscribe(res => {
             this.authenticate(res);
         })
     }
 
     login(credentials: any) {
-        return this.http.post<any>('http://localhost:5001/api/account/login', credentials).subscribe(res => {
-            console.log("Result: " + res);
+        return this.http.post<string>('http://localhost:5001/api/account/login', credentials).subscribe(res => {
             this.authenticate(res);
         })
     }
@@ -28,7 +27,7 @@ export class AuthService {
         localStorage.removeItem('token');
     }
 
-    authenticate(res: any) {
+    authenticate(res: string) {
         localStorage.setItem('token', res);
 
         this.router.navigate(['/']);

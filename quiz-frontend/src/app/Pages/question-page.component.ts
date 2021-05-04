@@ -2,12 +2,13 @@ import { Component } from '@angular/core';
 import { ApiService } from '../Services/api.service';
 import { AppService } from '../Services/app.service';
 import { ActivatedRoute } from '@angular/router';
+import { Question } from '../types';
 
 @Component({
     templateUrl: './question-page.component.html'
 })
 export class QuestionComponent {
-    question = {} as any;
+    question: Question = {};
     quizId: number = 0;
 
     constructor(private app: AppService, private api: ApiService, private route: ActivatedRoute) {
@@ -21,12 +22,12 @@ export class QuestionComponent {
         }
     }
     
-    post(question: any) {
+    post(question: Question) {
         question.quizId = this.quizId;
         this.api.postQuestion(question);
     }
 
-    put(question: any) {
+    put(question: Question) {
         this.api.putQuestion(question);
     }
 }

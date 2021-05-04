@@ -1,57 +1,58 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
+import { Question, Quiz } from '../types';
 
 @Injectable()
 export class ApiService {
 
-    private selectedQuestion = new Subject<any>();
+    private selectedQuestion = new Subject<Question>();
     questionSelected = this.selectedQuestion.asObservable();
 
-    private selectedQuiz = new Subject<any>();
+    private selectedQuiz = new Subject<Quiz>();
     quizSelected = this.selectedQuiz.asObservable();
 
     constructor(private http: HttpClient) {}
 
-    getQuestions(quizId: any) {
-        return this.http.get(`http://localhost:5001/api/questions/${quizId}`);
+    getQuestions(quizId: string | number): Observable<Question[]> {
+        return this.http.get<Question[]>(`http://localhost:5001/api/questions/${quizId}`);
     }
 
-    postQuestion(question: any) {
+    postQuestion(question: Question) {
         this.http.post('http://localhost:5001/api/questions', question).subscribe(res => {
             console.log(res);
         })
     }
 
-    putQuestion(question: any) {
+    putQuestion(question: Question) {
         this.http.put(`http://localhost:5001/api/questions/${question.id}`, question).subscribe(res => {
             console.log(res);
         })
     }
 
-    selectQuestion(question: any) {
+    selectQuestion(question: Question) {
         this.selectedQuestion.next(question);
     }
 
-    postQuiz(quiz: any) {
+    postQuiz(quiz: Quiz) {
         return this.http.post('http://localhost:5001/api/quizzes', quiz).subscribe(res => {
             console.log(res);
         })
     }
 
-    getQuizzes() {
-        return this.http.get('http://localhost:5001/api/quizzes');
+    getQuizzes(): Observable<Quiz[]> {
+        return this.http.get<Quiz[]>('http://localhost:5001/api/quizzes');
     }
 
-    getAllQuizzes() {
-        return this.http.get('http://localhost:5001/api/quizzes/all');
+    getAllQuizzes(): Observable<Quiz[]> {
+        return this.http.get<Quiz[]>('http://localhost:5001/api/quizzes/all');
     }
 
-    selectQuiz(quiz: any) {
+    selectQuiz(quiz: Quiz) {
         this.selectedQuiz.next(quiz);
     }
 
-    putQuiz(quiz: any) {
+    putQuiz(quiz: Quiz) {
         this.http.put(`http://localhost:5001/api/quizzes/${quiz.id}`, quiz).subscribe(res => {
             console.log(res);
         })
