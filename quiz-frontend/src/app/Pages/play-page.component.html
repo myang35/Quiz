@@ -1,8 +1,14 @@
 <mat-card>
     <mat-card-content>
-        <mat-list *ngFor="let quiz of quizzes">
-            <mat-list-item class="clickLink" [routerLink]="['/play-quiz', quiz.id]"> {{ quiz.title }} </mat-list-item>
-        </mat-list>
+        <table mat-table [dataSource]="quizzes" style="width: 100%">
+            <ng-container matColumnDef="title">
+              <th mat-header-cell *matHeaderCellDef> Title </th>
+              <td mat-cell *matCellDef="let quiz"> {{quiz.title}} </td>
+            </ng-container>
+          
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr class="clickLink" mat-row *matRowDef="let row; columns: displayedColumns;" [routerLink]="['/play-quiz', row.id]"></tr>
+        </table>
     </mat-card-content>
     <mat-card-actions>
 

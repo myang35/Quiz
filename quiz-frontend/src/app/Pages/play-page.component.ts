@@ -7,8 +7,8 @@ import { AppService } from '../Services/app.service';
 })
 export class PlayComponent {
 
+    displayedColumns: string[] = ['title']
     quizzes: any
-    
 
     constructor(private app: AppService, private api: ApiService) {
         this.app.setTitle("Play");
