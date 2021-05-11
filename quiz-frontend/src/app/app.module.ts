@@ -20,8 +20,6 @@ import { QuestionComponent } from './Pages/question-page.component';
 import { ApiService } from './Services/api.service';
 import { QuestionsComponent } from './Components/questions.component';
 import { PageHeaderComponent } from './Components/page-header.component';
-import { QuizComponent } from './Components/quiz.component';
-import { QuizzesComponent } from './Components/quizzes.component';
 import { RegisterComponent } from './Pages/register-page.component';
 import { AuthService } from './Services/auth.service';
 import { AuthInterceptor } from './Services/auth.interceptor';
@@ -38,8 +36,6 @@ import { AppService } from './Services/app.service';
     QuestionComponent,
     QuestionsComponent,
     PageHeaderComponent,
-    QuizComponent,
-    QuizzesComponent,
     RegisterComponent,
     LoginComponent,
     PlayComponent,
