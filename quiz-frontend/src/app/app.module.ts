@@ -18,7 +18,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { QuestionComponent } from './Pages/question-page.component';
 import { ApiService } from './Services/api.service';
-import { QuestionsComponent } from './Components/questions.component';
 import { PageHeaderComponent } from './Components/page-header.component';
 import { RegisterComponent } from './Pages/register-page.component';
 import { AuthService } from './Services/auth.service';
@@ -34,7 +33,6 @@ import { AppService } from './Services/app.service';
   declarations: [
     AppComponent,
     QuestionComponent,
-    QuestionsComponent,
     PageHeaderComponent,
     RegisterComponent,
     LoginComponent,

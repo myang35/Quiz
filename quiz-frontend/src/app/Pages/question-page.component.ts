@@ -8,6 +8,7 @@ import { Question } from '../types';
     templateUrl: './question-page.component.html'
 })
 export class QuestionComponent {
+    questions?: Question[];
     question: Question = {};
     quizId: number = 0;
 
@@ -19,6 +20,9 @@ export class QuestionComponent {
         this.quizId = parseInt(""+this.route.snapshot.paramMap.get('quizId'));
         if (this.quizId) {
             this.api.questionSelected.subscribe(question => this.question = question);
+            this.api.getQuestions(this.quizId).subscribe(res => {
+                this.questions = res
+            });
         }
     }
     
@@ -29,5 +33,9 @@ export class QuestionComponent {
 
     put(question: Question) {
         this.api.putQuestion(question);
+    }
+
+    selectQuestion(question: Question) {
+        this.api.selectQuestion(question);
     }
 }

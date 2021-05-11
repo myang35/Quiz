@@ -33,4 +33,15 @@
         <button *ngIf="!question.id" (click)="post(question)" mat-raised-button color="accent">POST</button>
     </mat-card-actions>
 </mat-card>
-<questions></questions>
+
+<mat-card>
+    <mat-card-title>Quizzes</mat-card-title>
+    <mat-card-content>
+        <mat-list *ngFor="let question of questions">
+            <mat-list-item class="clickLink" (click)="selectQuestion(question)"> {{ question.text }} </mat-list-item>
+        </mat-list>
+    </mat-card-content>
+    <mat-card-actions>
+
+    </mat-card-actions>
+</mat-card>
