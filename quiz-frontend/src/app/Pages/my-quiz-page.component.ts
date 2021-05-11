@@ -22,7 +22,12 @@ export class MyQuizComponent {
     }
 
     postQuiz(quiz: Quiz) {
-        this.api.postQuiz(quiz);
+        this.selectedQuiz.title = this.inputValue;
+        this.api.postQuiz(quiz).subscribe(result => {
+            this.quizzes.push(result);
+            this.selectedQuiz = {};
+            this.inputValue = '';
+        });
     }
 
     putQuiz(quiz: Quiz) {

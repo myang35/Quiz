@@ -28,7 +28,10 @@ export class QuestionComponent {
     
     post(question: Question) {
         question.quizId = this.quizId;
-        this.api.postQuestion(question);
+        this.api.postQuestion(question).subscribe(result => {
+            this.questions?.push(result);
+            this.editedQuestion = {};
+        });
     }
 
     put(question: Question) {

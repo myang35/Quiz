@@ -18,10 +18,8 @@ export class ApiService {
         return this.http.get<Question[]>(`http://localhost:5001/api/questions/${quizId}`);
     }
 
-    postQuestion(question: Question) {
-        this.http.post('http://localhost:5001/api/questions', question).subscribe(res => {
-            console.log(res);
-        })
+    postQuestion(question: Question): Observable<Question> {
+        return this.http.post<Question>('http://localhost:5001/api/questions', question);
     }
 
     putQuestion(question: Question) {
@@ -34,10 +32,8 @@ export class ApiService {
         this.selectedQuestion.next(question);
     }
 
-    postQuiz(quiz: Quiz) {
-        return this.http.post('http://localhost:5001/api/quizzes', quiz).subscribe(res => {
-            console.log(res);
-        })
+    postQuiz(quiz: Quiz): Observable<Quiz> {
+        return this.http.post<Quiz>('http://localhost:5001/api/quizzes', quiz);
     }
 
     getQuizzes(): Observable<Quiz[]> {
