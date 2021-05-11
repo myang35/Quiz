@@ -4,14 +4,14 @@ import { ActivatedRoute } from '@angular/router';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FinishedComponent } from '../Components/finished.component';
 import { AppService } from '../Services/app.service';
-import { Question } from '../types';
+import { Question, Quiz } from '../types';
 
 @Component({
     templateUrl: './play-quiz-page.component.html'
 })
 export class PlayQuizComponent {
 
-    quizId: any;
+    quiz: Quiz = {};
     questions: Question[] = [];
 
     constructor(private app: AppService, private api: ApiService, private route: ActivatedRoute, private dialog: MatDialog) {
@@ -19,15 +19,23 @@ export class PlayQuizComponent {
     }
 
     ngOnInit() {
-        this.quizId = this.route.snapshot.paramMap.get('quizId');
+        let quizId = this.route.snapshot.paramMap.get('quizId');
+        if (quizId == null) {
+            console.log("Quiz is null");
+            return;
+        }
 
-        this.api.getQuestions(this.quizId).subscribe(res => {
+        this.api.getQuestions(quizId).subscribe(res => {
             this.questions = res;
 
             this.questions.forEach(q => {
                 q.answers = [q.correctAnswer ?? 'null', q.answer1 ?? 'null', q.answer2 ?? 'null', q.answer3 ?? 'null'];
                 shuffle(q.answers);
             });
+        })
+
+        this.api.getQuiz(quizId).subscribe(result => {
+            this.quiz = result;
         })
     }
 
@@ -43,7 +51,15 @@ export class PlayQuizComponent {
             data: { correct, total: this.questions.length }
         });
         
-        console.log(correct);
+        if (this.quiz.playCount) {
+            this.quiz.playCount += 1;
+        } else {
+            this.quiz.playCount = 1;
+        }
+
+        this.api.putQuiz(this.quiz).subscribe(result => {
+            console.log(result);
+        });
     }
 
     step = 0;

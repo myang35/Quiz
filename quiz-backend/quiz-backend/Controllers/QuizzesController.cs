@@ -80,7 +80,7 @@ namespace quiz_backend.Controllers
                 }
             }
 
-            return NoContent();
+            return Ok(quiz);
         }
 
         // POST: api/Quizzes
@@ -91,8 +91,11 @@ namespace quiz_backend.Controllers
         public async Task<ActionResult<Quiz>> PostQuiz(Quiz quiz)
         {
             var userId = HttpContext.User.Claims.First().Value;
-
             quiz.OwnerId = userId;
+
+            quiz.Creation = DateTime.Now;
+            quiz.PlayCount = 0;
+
             _context.Quizzes.Add(quiz);
             await _context.SaveChangesAsync();
 

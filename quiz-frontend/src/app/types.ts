@@ -1,6 +1,9 @@
 export interface Quiz {
     id?: number,
-    title?: string
+    title?: string,
+    creation?: Date,
+    playCount?: number,
+    ownerId?: string
 }
 
 export interface Question {

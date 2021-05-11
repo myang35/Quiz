@@ -8,7 +8,7 @@ import { Quiz } from '../types';
 })
 export class PlayComponent {
 
-    displayedColumns: string[] = ['title']
+    displayedColumns: string[] = ['title', 'plays', 'creation', 'owner']
     quizzes: Quiz[] = [];
 
     constructor(private app: AppService, private api: ApiService) {
@@ -18,6 +18,7 @@ export class PlayComponent {
     ngOnInit() {
         this.api.getAllQuizzes().subscribe(res => {
             this.quizzes = res;
+            console.log(res);
         })
     }
 
