@@ -10,6 +10,7 @@ import { Question } from '../types';
 export class QuestionComponent {
     questions?: Question[];
     question: Question = {};
+    editedQuestion: Question = {};
     quizId: number = 0;
 
     constructor(private app: AppService, private api: ApiService, private route: ActivatedRoute) {
@@ -19,7 +20,6 @@ export class QuestionComponent {
     ngOnInit() {
         this.quizId = parseInt(""+this.route.snapshot.paramMap.get('quizId'));
         if (this.quizId) {
-            // this.api.questionSelected.subscribe(question => this.question = question);
             this.api.getQuestions(this.quizId).subscribe(res => {
                 this.questions = res
             });
@@ -33,10 +33,16 @@ export class QuestionComponent {
 
     put(question: Question) {
         this.api.putQuestion(question);
+        Object.assign(this.question, question);
+    }
+
+    newQuestion() {
+        this.question = {};
+        this.editedQuestion = {};
     }
 
     selectQuestion(question: Question) {
-        // this.api.selectQuestion(question);
         this.question = question;
+        Object.assign(this.editedQuestion, question);
     }
 }

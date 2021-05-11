@@ -7,30 +7,30 @@
         <form>
             <mat-form-field class="fullWidth">
                 <mat-label>Question</mat-label>
-                <input [(ngModel)]="question.text" name="question" matInput>
+                <input [(ngModel)]="editedQuestion.text" name="question" matInput>
             </mat-form-field>
             <mat-form-field class="fullWidth">
                 <mat-label>Correct Answer</mat-label>
-                <input [(ngModel)]="question.correctAnswer" name="correctAnswer" matInput>
+                <input [(ngModel)]="editedQuestion.correctAnswer" name="correctAnswer" matInput>
             </mat-form-field>
             <mat-form-field class="fullWidth">
                 <mat-label>Wrong Answer 1</mat-label>
-                <input [(ngModel)]="question.answer1" name="answer1" matInput>
+                <input [(ngModel)]="editedQuestion.answer1" name="answer1" matInput>
             </mat-form-field>
             <mat-form-field class="fullWidth">
                 <mat-label>Wrong Answer 2</mat-label>
-                <input [(ngModel)]="question.answer2" name="answer2" matInput>
+                <input [(ngModel)]="editedQuestion.answer2" name="answer2" matInput>
             </mat-form-field>
             <mat-form-field class="fullWidth">
                 <mat-label>Wrong Answer 3</mat-label>
-                <input [(ngModel)]="question.answer3" name="answer3" matInput>
+                <input [(ngModel)]="editedQuestion.answer3" name="answer3" matInput>
             </mat-form-field>
         </form>
     </mat-card-content>
     <mat-card-actions>
-        <button *ngIf="question.id" (click)="put(question)" mat-raised-button color="accent">EDIT</button>
-        <button *ngIf="question.id" (click)="question = {}" mat-raised-button color="accent">NEW</button>
-        <button *ngIf="!question.id" (click)="post(question)" mat-raised-button color="accent">POST</button>
+        <button *ngIf="question.id" (click)="put(editedQuestion)" mat-raised-button color="accent">EDIT</button>
+        <button *ngIf="question.id" (click)="newQuestion()" mat-raised-button color="accent">NEW</button>
+        <button *ngIf="!question.id" (click)="post(editedQuestion)" mat-raised-button color="accent">POST</button>
     </mat-card-actions>
 </mat-card>
 
@@ -38,7 +38,9 @@
     <mat-card-title>Quizzes</mat-card-title>
     <mat-card-content>
         <mat-list *ngFor="let question of questions">
+            <mat-divider></mat-divider>
             <mat-list-item class="clickLink" (click)="selectQuestion(question)"> {{ question.text }} </mat-list-item>
+            <mat-divider></mat-divider>
         </mat-list>
     </mat-card-content>
     <mat-card-actions>
