@@ -19,7 +19,7 @@ export class QuestionComponent {
     ngOnInit() {
         this.quizId = parseInt(""+this.route.snapshot.paramMap.get('quizId'));
         if (this.quizId) {
-            this.api.questionSelected.subscribe(question => this.question = question);
+            // this.api.questionSelected.subscribe(question => this.question = question);
             this.api.getQuestions(this.quizId).subscribe(res => {
                 this.questions = res
             });
@@ -36,6 +36,7 @@ export class QuestionComponent {
     }
 
     selectQuestion(question: Question) {
-        this.api.selectQuestion(question);
+        // this.api.selectQuestion(question);
+        this.question = question;
     }
 }
